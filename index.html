@@ -949,7 +949,7 @@ body.dark .hm2-id-body          { background:transparent; }
 
         <!-- Title -->
         <div style="font-size:30px;font-weight:900;color:#fff;letter-spacing:-0.5px;line-height:1">
-          SAUDISAT <span style="color:#4ade80">5B</span>
+          SAUDISAT <span style="color:#4ade80">5</span>
         </div>
         <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.45)">
           Battery Health Monitor
@@ -1528,121 +1528,6 @@ function updateLogo(isDark) {
   applyDark(isDark);
   btn.addEventListener("click",function(){applyDark(!isDark);});
 })();
-
-
-
-
-
-
-
-
-
-
-// ── SATELLITE MAP SAT LIST ──
-// N2YO NORAD IDs for Saudi satellites
-var satNoradMap = {
-  "SAUDISAT 1A (SO-41)": 26545,
-  "SAUDISAT 1B (SO-42)": 26549,
-  "SAUDISAT 1C (SO-50)": 27607,
-  "SAUDISAT 2":          28371,
-  "SAUDICOMSAT 1":       28369,
-  "SAUDICOMSAT 2":       28370,
-  "SAUDISAT 3":          31118,
-  "SAUDICOMSAT 3":       31125,
-  "SAUDICOMSAT 4":       31127,
-  "SAUDICOMSAT 5":       31124,
-  "SAUDICOMSAT 6":       31121,
-  "SAUDICOMSAT 7":       31119,
-  "SAUDISAT 4":          40016,
-  "SAUDISAT 5A":         43831,
-  "SAUDISAT 5B":         43833,
-  "SGS-1":               44034,
-  "Shaheen Sat":         47952
-};
-
-var missionColors = {
-  "Earth Observation":"#27AE60",
-  "Research & Science":"#5b8ee6",
-  "Telecommunications":"#E8A030"
-};
-
-function loadSatTracking(noradId, satName) {
-  var iframe = document.getElementById("satmapIframe");
-  var placeholder = document.getElementById("satmapPlaceholder");
-  var titleEl = document.getElementById("satmapEmbedTitle");
-  var isAr = document.body.classList.contains("ar");
-
-  if(placeholder) placeholder.style.display = "none";
-  if(titleEl) titleEl.textContent = (isAr ? "تتبع حي — " : "Live Tracking — ") + satName;
-
-  // N2YO live tracking iframe
-  var url = "https://www.n2yo.com/embeddedvideo/?s=" + noradId;
-  if(iframe) iframe.src = url;
-
-  // Update N2YO button link
-  var n2yoBtn = document.getElementById("satmapN2yo");
-  if(n2yoBtn) n2yoBtn.href = "https://www.n2yo.com/satellite/?s=" + noradId;
-}
-
-function buildSatList(){
-  var isAr = document.body.classList.contains("ar");
-  var data = (filteredData && filteredData.length > 0) ? filteredData : satellites;
-
-  // Build satellite cards grid
-  var grid = document.getElementById("satmapCardsGrid");
-  if(grid){
-    var cards = data.map(function(s){
-      var norad = satNoradMap[s.name] || "";
-      var col = missionColors[s.mission] || "#27AE60";
-      var statCol = s.status==="Operational" ? "#27AE60" : "#e74c3c";
-      var trackLabel = isAr ? "تتبع" : "Track";
-      var clickable = norad ? "cursor:pointer" : "opacity:0.6";
-      return "<div class=\"satmap-card\" style=\"background:#fff;border-radius:10px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);border-left:4px solid "+col+";"+clickable+"\""+
-        (norad ? " onclick=\"loadSatTracking("+norad+",\'" + s.name.replace(/'/g,"\\'")+"\')\"" : "")+">"+
-        "<div style=\"display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px\">"+
-        "<div style=\"font-size:13px;font-weight:700;color:#1a1a2e\">"+ s.name +"</div>"+
-        "<span style=\"font-size:10px;font-weight:600;padding:2px 8px;border-radius:12px;background:"+(s.status==="Operational"?"rgba(39,174,96,0.1)":"rgba(231,76,60,0.1)")+";color:"+statCol+";border:1px solid "+statCol+"\">"+s.status+"</span>"+
-        "</div>"+
-        "<div style=\"font-size:11px;color:#6b7a8d;margin-bottom:8px\">"+s.mission+" &nbsp;·&nbsp; "+s.orbit+" &nbsp;·&nbsp; "+s.country+"</div>"+
-        "<div style=\"font-size:11px;color:#94a3b8;margin-bottom:10px\">"+
-        "📅 "+s.launchDate+" &nbsp;·&nbsp; 🔭 "+s.inclination.toFixed(1)+"°"+
-        "</div>"+
-        (norad ?
-          "<button onclick=\"event.stopPropagation();loadSatTracking("+norad+",\'" + s.name.replace(/'/g,"\\'")+"\')\" style=\"width:100%;padding:6px;background:"+col+";color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer\">"+
-          "🛰️ "+trackLabel+"</button>" :
-          "<div style=\"font-size:10px;color:#94a3b8;text-align:center\">NORAD ID not available</div>")+
-        "</div>";
-    });
-    grid.innerHTML = cards.join("");
-  }
-
-  // Build quick-select buttons
-  var opSats = data.filter(function(s){ return s.status==="Operational" && satNoradMap[s.name]; });
-  var quickHtml = opSats.slice(0,5).map(function(s){
-    return "<button onclick=\"loadSatTracking("+satNoradMap[s.name]+",\'"+ s.name.replace(/'/g,"\\'")+"\')\" "+
-    "style=\"padding:4px 10px;background:#f1f5f9;border:1px solid #d8e2ef;border-radius:6px;font-size:11px;cursor:pointer;color:#1a1a2e;font-weight:600\">"+s.name+"</button>";
-  }).join("");
-  var quickEl = document.getElementById("satmapQuickBtns");
-  if(quickEl) quickEl.innerHTML = quickHtml;
-  var phBtns = document.getElementById("satmapPlaceholderBtns");
-  if(phBtns) phBtns.innerHTML = quickHtml;
-
-  // Update open link
-  var openBtn = document.getElementById("satmapOpenBtn");
-  if(openBtn) openBtn.textContent = isAr ? "🌍 فتح الخريطة الكاملة" : "🌍 Open Full Map";
-
-  // Update embed title
-  var titleEl = document.getElementById("satmapEmbedTitle");
-  if(titleEl && document.getElementById("satmapPlaceholder").style.display !== "none"){
-    titleEl.textContent = isAr ? "تتبع حي — اختر قمراً" : "Live Tracking — Select a Satellite";
-  }
-}
-
-
-
-
-
-
 
 
 // ════════════════════════════════════════════════════════

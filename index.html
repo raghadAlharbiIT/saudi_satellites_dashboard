@@ -765,7 +765,7 @@ body.dark .hm2-id-body          { background:transparent; }
       <div style="font-size:16px;color:rgba(255,255,255,0.65);margin-bottom:26px">Saudi Arabia's satellite program — from earth to orbit</div>
       <div style="display:flex;gap:40px">
         <div><div style="font-size:36px;font-weight:800;color:#27AE60;line-height:1;text-shadow:0 0 16px rgba(39,174,96,.4)">17</div><div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px">Satellites</div></div>
-        <div><div style="font-size:36px;font-weight:800;color:#27AE60;line-height:1;text-shadow:0 0 16px rgba(39,174,96,.4)">3</div><div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px">Operational</div></div>
+        <div><div style="font-size:36px;font-weight:800;color:#27AE60;line-height:1;text-shadow:0 0 16px rgba(39,174,96,.4)">5</div><div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px">Operational</div></div>
         <div><div style="font-size:36px;font-weight:800;color:#27AE60;line-height:1;text-shadow:0 0 16px rgba(39,174,96,.4)">2000</div><div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px">First Launch</div></div>
         <div><div style="font-size:36px;font-weight:800;color:#27AE60;line-height:1;text-shadow:0 0 16px rgba(39,174,96,.4)">3</div><div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px">Countries</div></div>
       </div>
@@ -810,11 +810,11 @@ body.dark .hm2-id-body          { background:transparent; }
     </div>
     <div class="stat-card">
       <div class="stat-card-header"><span class="stat-card-label">Operational</span><span class="stat-card-icon" style="color:#27ae60">&#8767;</span></div>
-      <div class="stat-card-value" id="statOp" style="color:#27ae60">3</div>
+      <div class="stat-card-value" id="statOp" style="color:#27ae60">15</div>
     </div>
     <div class="stat-card">
       <div class="stat-card-header"><span class="stat-card-label">Non-Operational</span><span class="stat-card-icon" style="color:#e67e22">&#128640;</span></div>
-      <div class="stat-card-value" id="statNonOp" style="color:#e67e22">14</div>
+      <div class="stat-card-value" id="statNonOp" style="color:#e67e22">2</div>
     </div>
     <div class="stat-card">
       <div class="stat-card-header"><span class="stat-card-label">Launch Countries</span><span class="stat-card-icon" style="color:#8b5cf6">&#127760;</span></div>
@@ -832,7 +832,7 @@ body.dark .hm2-id-body          { background:transparent; }
       <div class="filter-group"><label>Operational Status</label>
         <select id="statusFilter"><option value="All">All</option><option value="Operational">Operational</option><option value="NonOperational">Non-Operational</option></select></div>
       <div class="filter-group"><label>Mission Category</label>
-        <select id="missionFilter"><option value="All">All</option><option value="Earth Observation">Earth Observation</option><option value="Research &amp; Science">Research &amp; Science</option><option value="Telecommunications">Telecommunications</option></select></div>
+        <select id="missionFilter"><option value="All">All</option><option value="Amateur Communications">Amateur Communications</option><option value="Remote Sensing">Remote Sensing</option><option value="Remote Sensing Technology Transfer">Remote Sensing Technology Transfer</option><option value="Space Research">Space Research</option><option value="Telecommunications">Telecommunications</option></select></div>
       <div class="filter-group"><label>Orbit Type</label>
         <select id="orbitFilter"><option value="All">All</option><option value="LEO">LEO</option><option value="GEO">GEO</option></select></div>
       <div class="filter-group"><label>Launch Country</label>
@@ -1142,23 +1142,23 @@ var IMG = {
 };
 
 var satellites = [
-  {name:"SAUDISAT 1A (SO-41)", launchDate:"9/26/2000",  launchYear:2000,country:"Kazakhstan",status:"NonOperational",mission:"Research & Science", orbit:"LEO",inclination:64.55,period:96.46,  perigee:564.57,  apogee:613.61 },
-  {name:"SAUDISAT 1B (SO-42)", launchDate:"9/26/2000",  launchYear:2000,country:"Kazakhstan",status:"NonOperational",mission:"Research & Science", orbit:"LEO",inclination:64.55,period:96.59,  perigee:571.88,  apogee:618.61 },
-  {name:"SAUDISAT 1C (SO-50)", launchDate:"12/20/2002", launchYear:2002,country:"Kazakhstan",status:"NonOperational", mission:"Research & Science", orbit:"LEO",inclination:64.55,period:97.12,  perigee:568.18,  apogee:673.21 },
-  {name:"SAUDISAT 2",          launchDate:"6/29/2004",  launchYear:2004,country:"Kazakhstan",status:"NonOperational", mission:"Earth Observation",  orbit:"LEO",inclination:98.55,period:98.86,  perigee:687.51,  apogee:720.80 },
-  {name:"SAUDICOMSAT 1",       launchDate:"6/29/2004",  launchYear:2004,country:"Kazakhstan",status:"NonOperational", mission:"Earth Observation",  orbit:"LEO",inclination:98.58,period:98.94,  perigee:685.39,  apogee:730.90 },
-  {name:"SAUDICOMSAT 2",       launchDate:"6/29/2004",  launchYear:2004,country:"Kazakhstan",status:"NonOperational", mission:"Earth Observation",  orbit:"LEO",inclination:98.67,period:99.32,  perigee:687.06,  apogee:764.88 },
-  {name:"SAUDISAT 3",          launchDate:"4/17/2007",  launchYear:2007,country:"Kazakhstan",status:"NonOperational", mission:"Earth Observation",  orbit:"LEO",inclination:98.13,period:97.87,  perigee:646.99,  apogee:666.58 },
-  {name:"SAUDICOMSAT 3",       launchDate:"4/17/2007",  launchYear:2007,country:"Kazakhstan",status:"NonOperational", mission:"Earth Observation",  orbit:"LEO",inclination:98.30,period:97.93,  perigee:631.23,  apogee:687.75 },
-  {name:"SAUDICOMSAT 4",       launchDate:"4/17/2007",  launchYear:2007,country:"Kazakhstan",status:"NonOperational", mission:"Earth Observation",  orbit:"LEO",inclination:98.39,period:98.34,  perigee:635.08,  apogee:723.17 },
-  {name:"SAUDICOMSAT 5",       launchDate:"4/17/2007",  launchYear:2007,country:"Kazakhstan",status:"NonOperational", mission:"Earth Observation",  orbit:"LEO",inclination:98.34,period:98.09,  perigee:633.15,  apogee:701.90 },
-  {name:"SAUDICOMSAT 6",       launchDate:"4/17/2007",  launchYear:2007,country:"Kazakhstan",status:"NonOperational", mission:"Earth Observation",  orbit:"LEO",inclination:98.40,period:98.47,  perigee:635.31,  apogee:735.49 },
-  {name:"SAUDICOMSAT 7",       launchDate:"4/17/2007",  launchYear:2007,country:"Kazakhstan",status:"NonOperational", mission:"Earth Observation",  orbit:"LEO",inclination:98.37,period:98.23,  perigee:634.61,  apogee:713.42 },
-  {name:"SAUDISAT 4",          launchDate:"6/19/2014",  launchYear:2014,country:"Russia",    status:"NonOperational", mission:"Earth Observation",  orbit:"LEO",inclination:97.74,period:97.34,  perigee:598.95,  apogee:663.68 },
-  {name:"SAUDISAT 5A",         launchDate:"12/7/2018",  launchYear:2018,country:"China",     status:"Operational",   mission:"Earth Observation",  orbit:"LEO",inclination:97.32,period:94.32,  perigee:478.03,  apogee:492.79 },
-  {name:"SAUDISAT 5B",         launchDate:"12/7/2018",  launchYear:2018,country:"China",     status:"NonOperational", mission:"Earth Observation",  orbit:"LEO",inclination:97.33,period:94.30,  perigee:476.62,  apogee:492.32 },
-  {name:"SGS-1",               launchDate:"5/2/2019",   launchYear:2019,country:"Russia",    status:"Operational",   mission:"Telecommunications", orbit:"GEO",inclination:0.07, period:1436.10,perigee:35775.03,apogee:35798.12},
-  {name:"Shaheen Sat",         launchDate:"3/22/2021",  launchYear:2021,country:"Kazakhstan",status:"Operational",   mission:"Earth Observation",  orbit:"LEO",inclination:97.50,period:96.50,  perigee:550.00,  apogee:600.00 }
+  {name:"SAUDISAT 1A (SO-41)", launchDate:"9/26/2000",  launchYear:2000,country:"Kazakhstan",status:"NonOperational",mission:"Amateur Communications", orbit:"LEO",inclination:64.55,period:96.46,  perigee:564.57,  apogee:613.61 },
+  {name:"SAUDISAT 1B (SO-42)", launchDate:"9/26/2000",  launchYear:2000,country:"Kazakhstan",status:"NonOperational",mission:"Amateur Communications", orbit:"LEO",inclination:64.55,period:96.59,  perigee:571.88,  apogee:618.61 },
+  {name:"SAUDISAT 1C (SO-50)", launchDate:"12/20/2002", launchYear:2002,country:"Kazakhstan",status:"Operational", mission:"Amateur Communications", orbit:"LEO",inclination:64.55,period:97.12,  perigee:568.18,  apogee:673.21 },
+  {name:"SAUDISAT 2",          launchDate:"6/29/2004",  launchYear:2004,country:"Kazakhstan",status:"NonOperational", mission:"Remote Sensing Technology Transfer",  orbit:"LEO",inclination:98.55,period:98.86,  perigee:687.51,  apogee:720.80 },
+  {name:"SAUDICOMSAT 1",       launchDate:"6/29/2004",  launchYear:2004,country:"Kazakhstan",status:"NonOperational", mission:"Amateur Communications",  orbit:"LEO",inclination:98.58,period:98.94,  perigee:685.39,  apogee:730.90 },
+  {name:"SAUDICOMSAT 2",       launchDate:"6/29/2004",  launchYear:2004,country:"Kazakhstan",status:"NonOperational", mission:"Amateur Communications",  orbit:"LEO",inclination:98.67,period:99.32,  perigee:687.06,  apogee:764.88 },
+  {name:"SAUDISAT 3",          launchDate:"4/17/2007",  launchYear:2007,country:"Kazakhstan",status:"NonOperational", mission:"Remote Sensing",  orbit:"LEO",inclination:98.13,period:97.87,  perigee:646.99,  apogee:666.58 },
+  {name:"SAUDICOMSAT 3",       launchDate:"4/17/2007",  launchYear:2007,country:"Kazakhstan",status:"NonOperational", mission:"Amateur Communications",  orbit:"LEO",inclination:98.30,period:97.93,  perigee:631.23,  apogee:687.75 },
+  {name:"SAUDICOMSAT 4",       launchDate:"4/17/2007",  launchYear:2007,country:"Kazakhstan",status:"NonOperational", mission:"Amateur Communications",  orbit:"LEO",inclination:98.39,period:98.34,  perigee:635.08,  apogee:723.17 },
+  {name:"SAUDICOMSAT 5",       launchDate:"4/17/2007",  launchYear:2007,country:"Kazakhstan",status:"NonOperational", mission:"Amateur Communications",  orbit:"LEO",inclination:98.34,period:98.09,  perigee:633.15,  apogee:701.90 },
+  {name:"SAUDICOMSAT 6",       launchDate:"4/17/2007",  launchYear:2007,country:"Kazakhstan",status:"NonOperational", mission:"Amateur Communications",  orbit:"LEO",inclination:98.40,period:98.47,  perigee:635.31,  apogee:735.49 },
+  {name:"SAUDICOMSAT 7",       launchDate:"4/17/2007",  launchYear:2007,country:"Kazakhstan",status:"NonOperational", mission:"Amateur Communications",  orbit:"LEO",inclination:98.37,period:98.23,  perigee:634.61,  apogee:713.42 },
+  {name:"SAUDISAT 4",          launchDate:"6/19/2014",  launchYear:2014,country:"Kazakhstan",    status:"NonOperational", mission:"Space Research",  orbit:"LEO",inclination:97.74,period:97.34,  perigee:598.95,  apogee:663.68 },
+  {name:"SAUDISAT 5A",         launchDate:"12/7/2018",  launchYear:2018,country:"China",     status:"Operational",   mission:"Remote Sensing",  orbit:"LEO",inclination:97.32,period:94.32,  perigee:478.03,  apogee:492.79 },
+  {name:"SAUDISAT 5B",         launchDate:"12/7/2018",  launchYear:2018,country:"China",     status:"Operational", mission:"Remote Sensing",  orbit:"LEO",inclination:97.33,period:94.30,  perigee:476.62,  apogee:492.32 },
+  {name:"SGS-1",               launchDate:"5/2/2019",   launchYear:2019,country:"France",    status:"Operational",   mission:"Telecommunications", orbit:"GEO",inclination:0.07, period:1436.10,perigee:35775.03,apogee:35798.12},
+  {name:"Shaheen Sat",         launchDate:"3/22/2021",  launchYear:2021,country:"China",status:"Operational",   mission:"Remote Sensing",  orbit:"LEO",inclination:97.50,period:96.50,  perigee:550.00,  apogee:600.00 }
 ];
 
 var gallery=[
@@ -1342,7 +1342,7 @@ function updateCharts(){
     om[d.orbit]  =(om[d.orbit]  ||0)+1;
     cm2[d.country]=(cm2[d.country]||0)+1;
   });
-  setPie(charts.missionPie,"missionLegend",mm,{"Earth Observation":"#27ae60","Research & Science":"#5b8ee6","Telecommunications":"#e8a030"});
+  setPie(charts.missionPie,"missionLegend",mm,{"Amateur Communications":"#5b8ee6","Remote Sensing":"#27ae60","Remote Sensing Technology Transfer":"#1abc9c","Space Research":"#9b59b6","Telecommunications":"#e8a030"});
   setPie(charts.statusPie, "statusLegend", sm,{"Operational":"#27ae60","NonOperational":"#e8a030"});
   setPie(charts.orbitPie,  "orbitLegend",  om,{"LEO":"#5b8ee6","GEO":"#27ae60"});
 
@@ -1375,11 +1375,11 @@ document.querySelectorAll("th[data-key]").forEach(function(th){
 
 // GALLERY
 function renderGallery(){
-  var missionClass = {"Earth Observation":"earth","Telecommunications":"telecom","Research & Science":"research"};
+  var missionClass = {"Amateur Communications":"research","Remote Sensing":"earth","Remote Sensing Technology Transfer":"earth","Space Research":"research","Telecommunications":"telecom"};
   document.getElementById("galleryGrid").innerHTML=gallery.map(function(item){
     // Find satellite data for this gallery item
     var satData = satellites.find(function(s){ return s.name.indexOf(item.name.replace("SAUDISAT ","SAUDISAT "))===0 || s.name===item.name; });
-    var mission = satData ? satData.mission : "Earth Observation";
+    var mission = satData ? satData.mission : "Remote Sensing";
     var country = satData ? satData.country : "";
     var launchDate = satData ? satData.launchDate : "";
     var mClass = missionClass[mission] || "earth";
